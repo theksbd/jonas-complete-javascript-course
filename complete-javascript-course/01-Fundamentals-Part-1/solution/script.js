@@ -15,3 +15,28 @@
 // } else {
 //   console.log(`John's BMI (${johnBMI}) is higher than Mark's! (${markBMI})`);
 // }
+
+// // Coding Challenge 3
+// const dolphinsScore = (87 + 112 + 101) / 3;
+// const koalasScore = (109 + 85 + 106) / 3;
+// console.log(dolphinsScore, koalasScore);
+
+// if (dolphinsScore > koalasScore) {
+//   if (dolphinsScore >= 100) {
+//     console.log(
+//       `Dolphins (${dolphinsScore}) win, Koalas lose (${koalasScore})`
+//     );
+//   }
+// } else if (dolphinsScore < koalasScore) {
+//   if (koalasScore >= 100) {
+//     console.log(
+//       `Koalas win (${koalasScore}), Dolphins lose (${dolphinsScore})`
+//     );
+//   }
+// } else {
+//   if (dolphinsScore >= 100 && koalasScore >= 100) {
+//     console.log(
+//       `Draw! Dolphins (${dolphinsScore}) and Koalas (${koalasScore})`
+//     );
+//   }
+// }
