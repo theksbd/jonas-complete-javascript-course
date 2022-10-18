@@ -44,3 +44,28 @@ const description = `${country} in in ${continent} and its ${population} million
 // } else {
 //   console.log(`${country} does not meet Sarah's criteria :(`);
 // }
+
+// switch (language) {
+//   case "Chinese":
+//   case "Mandarin":
+//     console.log("MOST number of native speakers!");
+//     break;
+//   case "Spanish":
+//     console.log("2nd place in number of native speakers");
+//     break;
+//   case "English":
+//     console.log("3rd place");
+//     break;
+//   case "hindi":
+//     console.log("Number 4");
+//     break;
+//   case "arabic":
+//     console.log("5th most spoken language");
+//     break;
+//   default:
+//     console.log("Great language too :D");
+// }
+
+// console.log(
+//   `${country}'s population is ${population > 33 ? "above" : "below"} average`
+// );
