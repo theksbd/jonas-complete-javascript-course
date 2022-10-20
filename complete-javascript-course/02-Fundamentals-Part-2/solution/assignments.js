@@ -65,8 +65,62 @@
 
 // const myCountry = {
 //   country: "Viet Nam",
-//   capital: "Ha noi",
+//   capital: "Ha Noi",
 //   language: "Vietnamese",
 //   population: 925,
 //   neighbors: ["Thailand", "Laos", "Cambodia"],
+//   describe: function () {
+//     console.log(
+//       `${this.country} has ${this["population"]} million ${this.language}-speaking people, ${this.neighbors.length} neighboring countries and a capital called ${this.capital}`
+//     );
+//   },
+//   checkIsland: function () {
+//     this.isIsland = this.neighbors.length === 0;
+//     return this.isIsland;
+//   },
 // };
+
+// console.log(
+//   `${myCountry.country} has ${myCountry["population"]} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length} neighboring countries and a capital called ${myCountry.capital}`
+// );
+
+// myCountry.describe();
+// console.log(myCountry.checkIsland());
+
+// for (let i = 1; i <= 50; i++) {
+//   console.log(`Voter number ${i} is currently voting`);
+// }
+
+// const populations = [925, 110, 6, 1440];
+// const percentage2 = [];
+// for (let i = 0; i < populations.length; i++) {
+//   const population = populations[i];
+//   percentage2.push(percentageOfWorld1(population));
+// }
+
+// console.log(percentage2);
+
+// const listOfNeighbors = [
+//   ["Canada", "Mexico"],
+//   ["Spain"],
+//   ["Norway", "Sweden", "Russia"],
+// ];
+
+// for (let i = 0; i < listOfNeighbors.length; i++) {
+//   const neighbors = listOfNeighbors[i];
+//   for (let j = 0; j < neighbors.length; j++) {
+//     const neighbor = neighbors[j];
+//     console.log(`Neighbor: ${neighbor}`);
+//   }
+// }
+
+// const populations = [925, 110, 6, 1440];
+// const percentage3 = [];
+// let i = 0;
+// while (i < populations.length) {
+//   const population = populations[i];
+//   percentage3.push(percentageOfWorld1(population));
+//   i++;
+// }
+
+// console.log(percentage3);
