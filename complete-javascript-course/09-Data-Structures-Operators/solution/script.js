@@ -283,3 +283,109 @@ const restaurant = {
 // for (const [day, { open, close }] of entries) {
 //   console.log(`On ${day}, we open at ${open} and close at ${close}`);
 // }
+
+/* -------- Sets -------- */
+// const orderSet = new Set([
+//   "Pasta",
+//   "Pizza",
+//   "Pizza",
+//   "Pho",
+//   "Banh mi",
+//   "Risotto"
+// ]);
+// console.log(orderSet);
+// console.log(orderSet.size);
+// console.log(orderSet.has("Pizza"));
+// console.log(orderSet.has("pizza"));
+// orderSet.add("Bread");
+// orderSet.add("Bread");
+// orderSet.add("Bread");
+// console.log(orderSet);
+// orderSet.delete("Bread");
+// orderSet.delete("pizza");
+// console.log(orderSet);
+
+// for (const order of orderSet) {
+//   console.log(order);
+// }
+
+// orderSet.clear();
+// console.log(orderSet);
+
+// // Work with array
+// const staff = ["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"];
+// const uniqueStaff = new Set(staff);
+// console.log(uniqueStaff);
+// const newStaff = [...uniqueStaff];
+// console.log(newStaff);
+// // Work with string
+// console.log(new Set("Hellooooo"));
+// console.log(new Set("Helllllloooooo").size);
+
+/* -------- Maps -------- */
+// // Fundamentals
+// const rest = new Map();
+// rest.set("name", "El Clasico");
+// rest.set(1, "Barcelona");
+// rest.set(2, "Madrid");
+// rest
+//   .set("categories", ["Italian", "Pizzeria", "Vegetarian", "Organic"])
+//   .set("open", 11)
+//   .set("close", 23)
+//   .set(true, "We are open :v")
+//   .set(false, "We are close :(");
+// console.log(rest);
+// console.log(rest.get("name"));
+// console.log(rest.get(1));
+// console.log(rest.get("close"));
+// console.log(rest.get(true));
+// console.log(rest.get("Open"));
+// console.log(rest.get(open));
+
+// const time = 21;
+// console.log(rest.get(time >= rest.get("open") && time <= rest.get("close")));
+
+// console.log(rest.has("close"));
+// console.log(rest.has("Close"));
+// rest.delete(2);
+// rest.delete(false);
+// console.log(rest);
+// console.log(rest.size);
+
+// const arr = [1, 2];
+// rest.set(arr, "Array");
+// console.log(rest);
+// console.log(rest.size);
+// console.log(rest.get(arr));
+// rest.set(document.querySelector("h1"), "Heading");
+// console.log(rest);
+// // Iteration
+// const question = new Map([
+//   ["question", "What is the best programming language in the world?"],
+//   [1, "C++"],
+//   [2, "Java"],
+//   [3, "Javascript"],
+//   [4, "Python"],
+//   ["correct", 3],
+//   [true, "Correct 🏆"],
+//   [false, "Fail 😢"]
+// ]);
+// console.log(question);
+// // Convert object to map
+// const hoursMap = new Map(Object.entries(openingHours));
+// console.log(hoursMap);
+// // Quiz app
+// console.log(question.get("question"));
+// for (const [key, value] of question) {
+//   if (typeof key === "number") {
+//     console.log(`Answer ${key}: ${value}`);
+//   }
+// }
+// const ans = Number(prompt("Enter your answer: "));
+// console.log(ans);
+// console.log(question.get(question.get("correct") === ans));
+// // Convert map to array
+// console.log([...question]);
+// console.log(...question.entries());
+// console.log(...question.keys());
+// console.log(...question.values());

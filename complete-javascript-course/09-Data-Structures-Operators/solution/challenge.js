@@ -136,3 +136,35 @@
 //   scorer[scoredPlayer] = scorer[scoredPlayer] ? scorer[scoredPlayer] + 1 : 1;
 // }
 // console.log(scorer);
+
+/* -------- Coding Challenge 3 -------- */
+const gameEvents = new Map([
+  [17, "⚽ GOAL"],
+  [36, "🔁 Substitution"],
+  [47, "⚽ GOAL"],
+  [61, "🔁 Substitution"],
+  [64, "🔶 Yellow card"],
+  [69, "🔴 Red card"],
+  [70, "🔁 Substitution"],
+  [72, "🔁 Substitution"],
+  [76, "⚽ GOAL"],
+  [80, "⚽ GOAL"],
+  [92, "🔶 Yellow card"]
+]);
+
+// Ex 1
+const eventsSet = new Set(gameEvents.values());
+console.log(eventsSet);
+const events = [...eventsSet];
+console.log(events);
+// Ex 2
+gameEvents.delete(64);
+console.log(gameEvents);
+// Ex 3
+const time = [...gameEvents.keys()];
+console.log(time);
+console.log(`An event happened, on average, every ${90 / time.length} minutes`);
+// Ex 4
+for (const [time, event] of gameEvents) {
+  console.log(`${time <= 45 ? `FIRST` : `SECOND`} HALF ${time}: ${event}`);
+}
