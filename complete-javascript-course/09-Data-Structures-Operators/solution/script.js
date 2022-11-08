@@ -1,9 +1,5 @@
 "use strict";
 
-// Data needed for a later exercise
-const flights =
-  "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
-
 // Data needed for first part of the section
 const openingHours = {
   thu: {
@@ -389,3 +385,119 @@ const restaurant = {
 // console.log(...question.entries());
 // console.log(...question.keys());
 // console.log(...question.values());
+
+/* -------- String -------- */
+// const airline = "TAP Air Portugal";
+// const plane = "A320";
+// console.log(airline.length);
+// console.log(airline.indexOf("r"));
+// console.log(airline.lastIndexOf("r"));
+// console.log(airline.indexOf("Portugal"));
+// console.log(airline.slice(0, 3));
+// console.log(airline.slice(4));
+// console.log(airline.slice(0, airline.indexOf(" ")));
+// console.log(airline.slice(airline.lastIndexOf(" ") + 1));
+// console.log(airline.slice(airline.indexOf("r"), airline.lastIndexOf("r")));
+// console.log(airline.slice(-2));
+// console.log(airline.slice(-2, -1));
+// console.log(airline.slice(1, -1));
+
+// const checkMiddleSeat = function (seat) {
+//   // B and E are middle seats
+//   console.log(seat.slice(-1) === "B" || seat.slice(-1) === "E");
+// };
+
+// checkMiddleSeat("11B");
+// checkMiddleSeat("23C");
+// checkMiddleSeat("3E");
+
+// console.log(airline.toLowerCase());
+// console.log(airline.toUpperCase());
+
+// // Fix capitalization
+// const passenger = "hOANg";
+// console.log(
+//   passenger.slice(0, 1).toUpperCase() + passenger.slice(1).toLowerCase()
+// );
+// // Comparing email
+// const email = "hoang@gmail.com";
+// const loginEmail = "  HoAng@gmAil.Com \n";
+
+// const lowerEmail = loginEmail.toLowerCase();
+// const trimmedEmail = lowerEmail.trim();
+// console.log(trimmedEmail);
+// console.log(trimmedEmail === email);
+// // Replacing
+// const priceUS = "288,97$";
+// const priceVN = priceUS.replace("$", "VND").replace(",", ".");
+// console.log(priceVN);
+
+// const announcement =
+//   "All passengers come to boarding door 23. Boarding door 23!";
+// console.log(announcement.replace("door", "gate"));
+// console.log(announcement.replaceAll("door", "gate"));
+// // Boolean
+// const plane1 = "Airbus A320neo";
+// console.log(plane1.includes("A320"));
+// console.log(plane1.includes("Boeing"));
+// console.log(plane1.startsWith("Air"));
+// console.log(plane1.startsWith("Boeing"));
+
+// console.log("a+very+nice+string".split("+"));
+// const [firstName, lastName] = "Hoang Do".split(" ");
+// console.log(firstName, lastName);
+
+// const str = ["Mr.", firstName, lastName.toUpperCase()].join(" ");
+// console.log(str);
+
+// const capitalizeName = function (name) {
+//   const names = name.split(" ");
+//   const nameUpper = [];
+//   for (const n of names) {
+//     nameUpper.push(n[0].toUpperCase() + n.slice(1));
+//   }
+//   console.log(nameUpper.join(" "));
+// };
+// capitalizeName("jessica ann smith davis");
+// capitalizeName("hoang thien do");
+
+// // Padding
+// const message = "Go to gate 23";
+// console.log(message.padStart(25, "+").padEnd(50, "+"));
+// console.log(message.padEnd(25, "+"));
+
+// const maskCreditCard = function (number) {
+//   const str = number + "";
+//   const last = str.slice(-4);
+//   return last.padStart(str.length, "*");
+// };
+// console.log(maskCreditCard(45646168478947));
+
+// // Repeat
+// const message2 = "Bad weather... All departures delayed... ";
+// console.log(message2.repeat(5));
+// const planeInLine = function (n) {
+//   console.log(`There are ${n} planes in line ${`✈`.repeat(n)}`);
+// };
+// planeInLine(5);
+// planeInLine(15);
+
+// Practice
+const flights =
+  "_Delayed_Departure;fao93766109;txl2133758440;11:25+_Arrival;bru0943384722;fao93766109;11:45+_Delayed_Arrival;hel7439299980;fao93766109;12:05+_Departure;fao93766109;lis2323639855;12:30";
+
+for (const flight of flights.split("+")) {
+  // console.log(flight);
+  const [status, src, des, time] = flight.split(";");
+  // console.log(status, src, des, time);
+  let str = "";
+  // Handle status
+  str += status.split("_").slice(1).join(" ");
+  // Handle src and des
+  str += ` from ${src.slice(0, 3).toUpperCase()} to ${des
+    .slice(0, 3)
+    .toUpperCase()}`;
+  // Handle time
+  str += ` (${time.replace(":", "h")})`;
+  console.log(str);
+}

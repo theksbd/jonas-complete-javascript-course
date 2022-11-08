@@ -138,33 +138,58 @@
 // console.log(scorer);
 
 /* -------- Coding Challenge 3 -------- */
-const gameEvents = new Map([
-  [17, "⚽ GOAL"],
-  [36, "🔁 Substitution"],
-  [47, "⚽ GOAL"],
-  [61, "🔁 Substitution"],
-  [64, "🔶 Yellow card"],
-  [69, "🔴 Red card"],
-  [70, "🔁 Substitution"],
-  [72, "🔁 Substitution"],
-  [76, "⚽ GOAL"],
-  [80, "⚽ GOAL"],
-  [92, "🔶 Yellow card"]
-]);
+// const gameEvents = new Map([
+//   [17, "⚽ GOAL"],
+//   [36, "🔁 Substitution"],
+//   [47, "⚽ GOAL"],
+//   [61, "🔁 Substitution"],
+//   [64, "🔶 Yellow card"],
+//   [69, "🔴 Red card"],
+//   [70, "🔁 Substitution"],
+//   [72, "🔁 Substitution"],
+//   [76, "⚽ GOAL"],
+//   [80, "⚽ GOAL"],
+//   [92, "🔶 Yellow card"]
+// ]);
 
-// Ex 1
-const eventsSet = new Set(gameEvents.values());
-console.log(eventsSet);
-const events = [...eventsSet];
-console.log(events);
-// Ex 2
-gameEvents.delete(64);
-console.log(gameEvents);
-// Ex 3
-const time = [...gameEvents.keys()];
-console.log(time);
-console.log(`An event happened, on average, every ${90 / time.length} minutes`);
-// Ex 4
-for (const [time, event] of gameEvents) {
-  console.log(`${time <= 45 ? `FIRST` : `SECOND`} HALF ${time}: ${event}`);
-}
+// // Ex 1
+// const eventsSet = new Set(gameEvents.values());
+// console.log(eventsSet);
+// const events = [...eventsSet];
+// console.log(events);
+// // Ex 2
+// gameEvents.delete(64);
+// console.log(gameEvents);
+// // Ex 3
+// const time = [...gameEvents.keys()];
+// console.log(time);
+// console.log(`An event happened, on average, every ${90 / time.length} minutes`);
+// // Ex 4
+// for (const [time, event] of gameEvents) {
+//   console.log(`${time <= 45 ? `FIRST` : `SECOND`} HALF ${time}: ${event}`);
+// }
+
+/* -------- Coding Challenge 4 -------- */
+// document.body.append(document.createElement("textarea"));
+// document.body.append(document.createElement("button"));
+
+// const btn = document.querySelector("button");
+// btn.addEventListener("click", () => {
+//   const input = document.querySelector("textarea").value;
+//   const texts = input.split("\n");
+//   const arr = [];
+//   for (const text of texts) {
+//     const tokens = text.trim().toLowerCase().split("_");
+//     let str = "";
+//     for (let i = 0; i < tokens.length; i++) {
+//       const token = tokens[i];
+//       if (i === 0) {
+//         str += token;
+//       } else {
+//         str += token.replace(token[0], token[0].toUpperCase());
+//       }
+//     }
+//     arr.push(str.padEnd(20, " ") + "✅".repeat(arr.length + 1));
+//   }
+//   console.log(arr.join("\n"));
+// });
