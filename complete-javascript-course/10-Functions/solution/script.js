@@ -67,7 +67,6 @@
 //   console.log(`Original string: ${str}`);
 //   console.log(`Transformed string: ${func(str)}`);
 //   console.log(`Transformed by: ${func.name}`);
-//   // return func(str);
 // };
 // transformer("Javascript is fun", oneWord);
 // transformer("Javascript is fun", upperFirstWord);
@@ -93,3 +92,93 @@
 // greetArrow("Hello")("Hoang");
 
 /* ------ Call, apply and bind ------ */
+// // Call method
+// const lufthansa = {
+//   airline: "Lufthansa",
+//   iataCode: "LH",
+//   bookings: [],
+//   book(flightNum, name) {
+//     console.log(
+//       `${name} booked a seat at ${this.airline} flight ${this.iataCode}${flightNum}`
+//     );
+//     this.bookings.push({
+//       flight: `${this.iataCode}${flightNum}`,
+//       name
+//     });
+//   }
+// };
+
+// lufthansa.book(239, "Hoang");
+// lufthansa.book(635, "Jonas");
+// console.log(lufthansa);
+
+// const eurowings = {
+//   airline: "Eurowings",
+//   iataCode: "EW",
+//   bookings: []
+// };
+
+// const book = lufthansa.book;
+// // Error because this keyword is undefined due to the regular function call
+// // book(234, "Andrei");
+// book.call(eurowings, 234, "Andrei");
+// console.log(eurowings);
+// book.call(lufthansa, 235, "Brad");
+// console.log(lufthansa);
+
+// const swiss = {
+//   airline: "Swiss",
+//   iataCode: "LX",
+//   bookings: []
+// };
+// book.call(swiss, 101, "Max");
+// console.log(swiss);
+
+// // Apply method
+// const flightData = [200, "John"];
+// book.apply(swiss, flightData);
+// console.log(swiss);
+// book.call(swiss, ...flightData);
+// console.log(swiss);
+
+// // Bind method
+// const bookLH = book.bind(lufthansa);
+// const bookEW = book.bind(eurowings);
+// const bookSW = book.bind(swiss);
+
+// bookEW(202, "Angela");
+// console.log(eurowings);
+// bookSW(300, "Yihua");
+// console.log(swiss);
+
+// const bookEW23 = book.bind(eurowings, 23);
+// bookEW23("Adam");
+// console.log(eurowings);
+
+// // With event listeners
+// lufthansa.planes = 300;
+// lufthansa.buyPlane = function () {
+//   console.log(this);
+//   this.planes++;
+//   console.log(this.planes);
+// };
+
+// document
+//   .querySelector(".buy")
+//   .addEventListener("click", lufthansa.buyPlane.bind(lufthansa));
+
+// // Partial application
+// const addTax = (rate, value) => value + value * rate;
+// console.log(addTax(0.1, 200));
+
+// const addVAT = addTax.bind(null, 0.23);
+// console.log(addVAT(200));
+
+// const addTax1 = function (rate) {
+//   return function (value) {
+//     return value + value * rate;
+//   };
+// };
+// const a = addTax1(0.1);
+// console.log(a(200));
+// console.log(addTax1(0.23)(200));
