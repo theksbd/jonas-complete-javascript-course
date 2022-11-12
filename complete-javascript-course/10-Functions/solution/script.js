@@ -138,6 +138,7 @@
 // const flightData = [200, "John"];
 // book.apply(swiss, flightData);
 // console.log(swiss);
+// // We rarely use apply method nowadays, because we can use spread operator in modern JS instead
 // book.call(swiss, ...flightData);
 // console.log(swiss);
 
@@ -182,3 +183,38 @@
 // const a = addTax1(0.1);
 // console.log(a(200));
 // console.log(addTax1(0.23)(200));
+
+/* ------ Immediately Invoked Function Expression (IIFE) ------ */
+// // Traditional function expression, we can invoke it multiple times
+// const runOnce = function () {
+//   console.log("This will never run again");
+// };
+// runOnce();
+// runOnce();
+// runOnce();
+
+// (function () {
+//   console.log("This will never run again");
+// })();
+
+// (() => {
+//   console.log("This will ALSO never run again");
+// })();
+
+// ((name) => {
+//   console.log(`Hi ${name}`);
+// })("Hoang");
+
+/* ------ Closure ------ */
+const secureBooking = function () {
+  let passengerCount = 0;
+  return function () {
+    passengerCount++;
+    console.log(passengerCount + " passengers");
+  };
+};
+
+const booker = secureBooking();
+booker();
+booker();
+booker();
