@@ -28,3 +28,17 @@
 // document
 //   .querySelector(".poll")
 //   .addEventListener("click", poll.registerNewAnswer.bind(poll));
+
+/* ------ Coding Challenge 2 ------ */
+(function () {
+  const header = document.querySelector("h1");
+  header.style.color = "red";
+
+  document.body.addEventListener("click", () => {
+    if (header.style.color === "red") {
+      header.style.color = "blue";
+    } else {
+      header.style.color = "red";
+    }
+  });
+})();
