@@ -88,9 +88,12 @@ const createUserName = function (accounts) {
 
 createUserName(accounts);
 
-const calculateAndDisplayBalance = function (movements) {
-  const balance = movements.reduce((total, current) => total + current, 0);
-  labelBalance.innerText = balance + " EUR";
+const calculateAndDisplayBalance = function (account) {
+  account.balance = account.movements.reduce(
+    (total, current) => total + current,
+    0
+  );
+  labelBalance.innerText = account.balance + " EUR";
 };
 
 const calculateAndDisplaySummary = function (account) {
@@ -112,6 +115,15 @@ const calculateAndDisplaySummary = function (account) {
   labelSumInterest.innerText = interest + " EUR";
 };
 
+const updateUI = function (account) {
+  // Display movements
+  displayMovement(account.movements);
+  // Display balance
+  calculateAndDisplayBalance(account);
+  // Display summary
+  calculateAndDisplaySummary(account);
+};
+
 // Event handler
 let currentAccount;
 btnLogin.addEventListener("click", (e) => {
@@ -130,13 +142,69 @@ btnLogin.addEventListener("click", (e) => {
     // Clear the input field
     inputLoginUsername.value = "";
     inputLoginPin.value = "";
-    // Display movements
-    displayMovement(currentAccount.movements);
-    // Display balance
-    calculateAndDisplayBalance(currentAccount.movements);
-    // Display summary
-    calculateAndDisplaySummary(currentAccount);
+
+    updateUI(currentAccount);
   }
+});
+
+btnTransfer.addEventListener("click", (e) => {
+  e.preventDefault();
+  const amount = Number(inputTransferAmount.value);
+  const receiver = accounts.find(
+    (account) => account.username === inputTransferTo.value
+  );
+
+  inputTransferAmount.value = "";
+  inputTransferTo.value = "";
+
+  if (
+    amount > 0 &&
+    receiver &&
+    amount <= currentAccount.balance &&
+    receiver?.username !== currentAccount.username
+  ) {
+    console.log("Transfer successfully!");
+    currentAccount.movements.push(amount * -1);
+    receiver.movements.push(amount);
+    updateUI(currentAccount);
+  }
+});
+
+btnLoan.addEventListener("click", (e) => {
+  e.preventDefault();
+  const amount = Number(inputLoanAmount.value);
+
+  if (
+    amount > 0 &&
+    currentAccount.movements.some((mov) => mov >= amount * 0.1)
+  ) {
+    currentAccount.movements.push(amount);
+    updateUI(currentAccount);
+  }
+  inputLoanAmount.value = "";
+});
+
+btnClose.addEventListener("click", (e) => {
+  e.preventDefault();
+  const usernameClose = inputCloseUsername.value;
+  const pinClose = Number(inputClosePin.value);
+
+  if (
+    usernameClose === currentAccount.username &&
+    pinClose === currentAccount.pin
+  ) {
+    const indexClose = accounts.findIndex(
+      (account) => account.username === usernameClose
+    );
+    // Delete account
+    accounts.splice(indexClose, 1);
+    // Hide UI
+    containerApp.style.opacity = 0;
+    // Update welcome message
+    labelWelcome.innerText = `Log in to get started`;
+  }
+  inputCloseUsername.value = "";
+  inputClosePin.value = "";
 });
 
 /////////////////////////////////////////////////
@@ -257,3 +325,35 @@ btnLogin.addEventListener("click", (e) => {
 
 // const account = accounts.find((account) => account.owner === "Jessica Davis");
 // console.log(account);
+
+// // some and every
+// const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+// const anyDeposits = movements.some((mov) => mov > 0);
+// console.log(anyDeposits);
+
+// const allDeposits = movements.every((mov) => mov > 0);
+// console.log(allDeposits);
+
+// // flat and flatMap
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+// console.log(arr.flat());
+
+// const arrDeep = [[[1, 2], 3], [4, 5, 6], 7, 8];
+// console.log(arrDeep.flat(2));
+
+// const accountMovements = accounts.map((acc) => acc.movements);
+// console.log(accountMovements);
+// const allMovements = accountMovements.flat();
+// console.log(allMovements);
+// // Using flat
+// const overallBalance = accounts
+//   .map((acc) => acc.movements)
+//   .flat()
+//   .reduce((total, current) => total + current, 0);
+// console.log(overallBalance);
+// // Using flatMap
+// const overallBalance2 = accounts
+//   .flatMap((acc) => acc.movements)
+//   .reduce((total, current) => total + current, 0);
+// console.log(overallBalance2);
