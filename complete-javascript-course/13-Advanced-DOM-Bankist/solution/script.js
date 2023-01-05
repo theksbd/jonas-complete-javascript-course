@@ -31,3 +31,28 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
+
+const btnScrollTo = document.querySelector(".btn--scroll-to");
+const section1 = document.querySelector("#section--1");
+
+btnScrollTo.addEventListener("click", function (e) {
+  // const s1coords = section1.getBoundingClientRect();
+
+  // window.scrollTo(
+  //   s1coords.left + window.scrollX,
+  //   s1coords.top + window.scrollY
+  // );
+
+  // window.scrollTo({
+  //   left: s1coords.left + window.scrollX,
+  //   top: s1coords.top + window.scrollY,
+  //   behavior: "smooth"
+  // });
+
+  section1.scrollIntoView({ behavior: "smooth" });
+});
+
+const h1 = document.querySelector("h1");
+h1.addEventListener("mouseenter", function (e) {
+  alert("Hello");
+});
