@@ -1,7 +1,7 @@
 "use strict";
 
 ///////////////////////////////////////
-// Modal window
+// App
 
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
@@ -73,7 +73,8 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
   }
 });
 
-/* -------------- Experiments ----------------- */
+///////////////////////////////////////
+// Experiments
 
 // const h1 = document.querySelector("h1");
 // const handleEventH1 = function (e) {
@@ -103,4 +104,30 @@ document.querySelector(".nav__links").addEventListener("click", function (e) {
 // document.querySelector(".nav").addEventListener("click", function (e) {
 //   this.style.backgroundColor = randomColor();
 //   console.log("NAV", e.target);
+// });
+
+/* -------------- DOM Traversing --------------- */
+// const h1 = document.querySelector("h1");
+
+// // Going downwards: Selecting child
+// console.log(h1.querySelectorAll(".highlight"));
+// console.log(h1.children);
+// h1.firstElementChild.style.color = "red";
+// h1.lastElementChild.style.color = "whitesmoke";
+
+// // Going upwards: Selecting parent
+// console.log(h1.parentNode);
+// console.log(h1.parentElement);
+
+// h1.closest(".header").style.background = "var(--gradient-secondary)";
+
+// // Going sideways: Selecting siblings
+// console.log(h1.previousElementSibling);
+// console.log(h1.nextElementSibling);
+
+// console.log(h1.parentElement.children);
+// [...h1.parentElement.children].forEach(function (el) {
+//   if (el !== h1) {
+//     el.style.transform = "scale(0.5)";
+//   }
 // });
