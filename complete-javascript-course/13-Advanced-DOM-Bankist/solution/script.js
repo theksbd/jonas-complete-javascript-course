@@ -168,7 +168,7 @@ const sectionObserver = new IntersectionObserver(revealSection, {
 
 allSections.forEach(section => {
   sectionObserver.observe(section);
-  section.classList.add("section--hidden");
+  // section.classList.add("section--hidden");
 });
 
 // Lazy loading images
@@ -240,8 +240,8 @@ const previousSlide = function () {
 };
 
 // Initialize the Slider
-goToSlide(0);
 createDots();
+goToSlide(0);
 activateDot(0);
 
 // Event
@@ -255,10 +255,9 @@ document.addEventListener("keydown", function (e) {
 
 dotContainer.addEventListener("click", function (e) {
   if (e.target.classList.contains("dots__dot")) {
-    const slide = e.target.dataset.slide;
-    goToSlide(slide);
-    activateDot(slide);
-    currentSlide = slide;
+    currentSlide = Number(e.target.dataset.slide);
+    goToSlide(currentSlide);
+    activateDot(currentSlide);
   }
 });
 
